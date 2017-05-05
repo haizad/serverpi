@@ -1,0 +1,22 @@
+Installing Raspbian Jessie in Raspberry Pi 3
+I will show you how to install raspbian using SD card.
+
+Download link: https://downloads.raspberrypi.org/raspbian_latest
+You can use other version of raspbian, but I will recommend Jessie as it is the latest one (25th Dec) , and I don’t have any problems so far using it.
+Unzip the downloaded file (2016-11-25-raspbian-jessie.zip) → you will get .img file.
+1.1.2 Burn MMC / SD Card
+Insert MMC / SD Card into your PC slot. My sd card name is mmcblk0p, so I will use write this.
+umount /dev/mmcblk0p1
+umount /dev/mmcblk0p2
+
+To check what is your sd card name, write this code in terminal
+sudo fdisk -l
+you may get listed of device in your computer. *scroll down until you see something like /dev/mmcblk0p1, /dev/mmcblk0p2, or /dev/sdb1, /dev/sdb2
+
+ sudo dcfldd bs=1M if=2016-11-25-raspbian-jessie.img of=/dev/mcblk0
+@
+umount /dev/mmcblk0p1
+umount /dev/mmcblk0p2
+sudo dcfldd bs=1M if=2015-05-05-raspbian-wheezy.img  of=/dev/mmcblk0
+
+sync
